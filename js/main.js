@@ -1,3 +1,7 @@
+import { PLAYER_STATE } from "./config.js"
+
+console.log(PLAYER_STATE)
+
 let lastTime;
 function main(now){
 	if(!lastTime) lastTime = now;
