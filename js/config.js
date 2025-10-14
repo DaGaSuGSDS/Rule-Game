@@ -14,3 +14,10 @@ export const PLAYER_STATE = setEnum(["IDLE","MOVING"]);
 
 // BOARD
 export const BOARD_PLAYER_TURN_ORDER = setEnum(["FORWARD","REVERSE"]);
+
+export const DICE_CONST_VALUES = {
+	TYPE:{
+		NUMBER: 0,
+		EFFECT: 1
+	}
+};
