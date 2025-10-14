@@ -5,3 +5,12 @@
 	todos los archivos en el index.html -> mucho más ordenado y seguro *
 	* El ';' no es necesario pero mejor que se ponga *
 */
+import { setEnum } from "./shared/enum.js";
+
+// PLAYER
+export const PLAYER_NUM = 4;
+export const PLAYER_SPEED = 7;
+export const PLAYER_STATE = setEnum(["IDLE","MOVING"]);
+
+// BOARD
+export const BOARD_PLAYER_TURN_ORDER = setEnum(["FORWARD","REVERSE"]);
