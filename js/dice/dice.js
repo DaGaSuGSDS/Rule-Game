@@ -1,16 +1,15 @@
 import {handleError} from "js/shared/errorHandling.js";
 import { DICE_ERROR_MESSAGES } from "./config";
 import {random} from "js/shared/random.js";
-import { DICE_CONST_VALUES } from "../config";
-import { Effect } from "../effect/effect";
+import { DICE_CONST_VALUES } from "js/config";
+import { Effect } from "js/effect/effect";
 
 export class Dice{
     #type;
     #values;
     constructor(type, values){
         if(type == undefined){
-            handleError(DICE_ERROR_MESSAGES.INIT.TYPE.MISSING_ATTRIBUTE);
-            return
+            return handleError(DICE_ERROR_MESSAGES.INIT.TYPE.MISSING_ATTRIBUTE);
         } else {
             if(Number.isInteger(type)){
                 this.#type = type;
@@ -20,7 +19,7 @@ export class Dice{
             if(Array.isArray(this.#values)){
                 this.#values = values; 
             }else{
-                handleError(DICE_ERROR_MESSAGES.INIT.VALUES.INVALID_TYPE);
+                return handleError(DICE_ERROR_MESSAGES.INIT.VALUES.INVALID_TYPE);
             }
         } else{
             this.#values = [];
@@ -40,16 +39,16 @@ export class Dice{
             if(Number.isInteger(value)){
                 this.#values.push(value);
             }else {
-                handleError(DICE_ERROR_MESSAGES.ADD_VALUE.TYPE_MISMATCH_NUMBER);
+                return handleError(DICE_ERROR_MESSAGES.ADD_VALUE.TYPE_MISMATCH_NUMBER);
             }
         }else if(this.#type = DICE_CONST_VALUES.TYPE.EFFECT){
             if(value instanceof Effect){
                 this.#values.push(value);
             }else {
-                handleError(DICE_ERROR_MESSAGES.ADD_VALUE.TYPE_MISMATCH_EFFECT);
+                return handleError(DICE_ERROR_MESSAGES.ADD_VALUE.TYPE_MISMATCH_EFFECT);
             }
         }else{
-            handleError(DICE_ERROR_MESSAGES.ADD_VALUE.INVALID_TYPE);
+            return handleError(DICE_ERROR_MESSAGES.ADD_VALUE.INVALID_TYPE);
         }
 
     }
