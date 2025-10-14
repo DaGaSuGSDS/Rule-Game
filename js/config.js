@@ -5,3 +5,10 @@
 	todos los archivos en el index.html -> mucho más ordenado y seguro *
 	* El ';' no es necesario pero mejor que se ponga *
 */
+
+export const DICE_CONST_VALUES = {
+	TYPE:{
+		NUMBER: 0,
+		EFFECT: 1
+	}
+};
